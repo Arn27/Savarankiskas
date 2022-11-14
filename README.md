@@ -12,3 +12,6 @@ Yra galimybė spausdinti rezultatus.
 Rezultatai spausdinami formatuotose eilutėse.
 
 Meniu pagalba palengvina vartotojo darbą su programa.
+
+Programa leidžia pasirinkti kuriuo būdu skaičiuoti galutinį balą.
+
