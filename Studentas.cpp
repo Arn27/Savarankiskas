@@ -65,9 +65,10 @@ istream& operator>>(istream& input, Studentas& S) {
 		cout << "Iveskite egzamino rezultata:" << endl;
 		cin >> S.egz;
 	}
-	//cout << "Kokiu budu skaiciuoti galutini pazymi? 0 - Vidurkis / 1 - Mediana" << endl;
-	//cin >> b;
+	cout << "Kokiu budu skaiciuoti galutini pazymi? 0 - Vidurkis / 1 - Mediana" << endl;
+	cin >> b;
 	S.countGalutinis(b);
+	S.budas = b;
 	cout << "Duomenys sekmingai ivesti!" << endl;
 	return input;
 }
@@ -78,6 +79,10 @@ string Studentas::getVarda() {
 
 string Studentas::getPavarde() {
 	return pavarde;
+}
+
+bool Studentas::getBudas() {
+	return budas;
 }
 
 double Studentas::getGalutinis() {

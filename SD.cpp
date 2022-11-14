@@ -2,7 +2,7 @@
 
 int main() {
 	int option = 0, kiek = 0;
-	string r;
+	string r, bud = "";
 	Studentas S;
 	vector<Studentas> Studentai;
 
@@ -17,10 +17,10 @@ int main() {
 			Studentai.push_back(S);
 			break;
 		case 2:
-			for (int i = 0; i < kiek; i++) {
-				Studentai[i].countGalutinis(1);
-			}
-			cout << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(15) << left << setprecision(2) << fixed << "Galutinis(Vidurkis)" << endl;
+			if (Studentai[0].getBudas() == false) {
+				bud = "Galutinis(Vidurkis)";
+			} else { bud = "Galutinis(Mediana)"; }
+			cout << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(15) << left << setprecision(2) << fixed << bud << endl;
 			cout << "------------------------------------------" << endl;
 			for (int j = 0; j < kiek; j++) {
 				cout << Studentai[j];
