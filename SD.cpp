@@ -26,6 +26,11 @@ int main() {
 				cout << Studentai[j];
 			}
 			break;
+
+		case 3:
+			FailoSkaitymas();
+			cout << endl;
+			break;
 		}
 	}
 	return 0;

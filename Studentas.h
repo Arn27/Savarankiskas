@@ -7,7 +7,8 @@ class Studentas {
 	vector<int> nd; // Namu darbu ivertinimu masyvas
 	int egz; // Egzamino rezultatas
 	bool budas; // Galutinio skaiciavimo budas
-	double galutinis; // Galutinis balas
+	double galutinisV; // Galutinis balas
+	double galutinisM;
 
 public:
 	Studentas();
@@ -26,5 +27,6 @@ public:
 	string getVarda();
 	string getPavarde();
 	bool getBudas();
-	double getGalutinis();
+	double getGalutinisV();
+	double getGalutinisM();
 };

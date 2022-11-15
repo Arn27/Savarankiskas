@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Funkcijos.cpp" />
+    <ClCompile Include="IsFailo.cpp" />
     <ClCompile Include="SD.cpp" />
     <ClCompile Include="Studentas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bibliotekos.h" />
     <ClInclude Include="Funkcijos.h" />
+    <ClInclude Include="IsFailo.h" />
     <ClInclude Include="Studentas.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

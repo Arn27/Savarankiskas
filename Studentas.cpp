@@ -5,7 +5,8 @@ Studentas::Studentas() {
 	pavarde = "";
 	nd.push_back(0);
 	egz = 0;
-	galutinis = 0;
+	galutinisV = 0;
+	galutinisM = 0;
 }
 
 Studentas::Studentas(string v, string p, vector<int> n, int e) {
@@ -13,7 +14,8 @@ Studentas::Studentas(string v, string p, vector<int> n, int e) {
 	pavarde = p;
 	nd = n;
 	egz = e;
-	galutinis = 0;
+	galutinisV = 0;
+	galutinisM = 0;
 }
 
 Studentas::Studentas(const Studentas& s) {
@@ -21,13 +23,17 @@ Studentas::Studentas(const Studentas& s) {
 	pavarde = s.pavarde;
 	nd = s.nd;
 	egz = s.egz;
-	galutinis = s.galutinis;
+	galutinisV = s.galutinisV;
+	galutinisM = s.galutinisM;
 }
 
 Studentas::~Studentas() {};
 
 ostream& operator<<(ostream& output, const Studentas& S) {
-	output << setw(15) << left << S.pavarde << setw(15) << left << S.vardas << setw(15) << left << S.galutinis << endl;
+
+	output << setw(15) << left << S.pavarde << setw(15) << left << S.vardas;
+	output << setw(15) << left << S.galutinisV << setw(15) << left << S.galutinisM << endl;
+		//output << setw(15) << left << S.galutinisM;
 	return output;
 }
 
@@ -85,30 +91,39 @@ bool Studentas::getBudas() {
 	return budas;
 }
 
-double Studentas::getGalutinis() {
-	return galutinis;
+double Studentas::getGalutinisV() {
+	return galutinisV;
+}
+
+double Studentas::getGalutinisM() {
+	return galutinisM;
 }
 
 void Studentas::countGalutinis(bool budas) {
 	int k = nd.size();
 	int total = 0;
-	if (budas == 1) {
+	//if (budas == 1) {
 		for (int i = 0; i < k; i++) {
 			total += nd[i];
 		}
-		galutinis = total / (double)k;
-		galutinis = (galutinis * 0.4) + (egz * 0.6);
-	}
-	else {
+		try {
+			galutinisV = total / (double)k;
+		}
+		catch (exception& e) {
+			cout << "Dalyba is nulio negalima!" << endl;
+		}
+		galutinisV = (galutinisV * 0.4) + (egz * 0.6);
+	//}
+	//else {
 		sort(nd.begin(), nd.end());
 		if (k % 2 == 1) {
 			k = k / 2;
-			galutinis = (nd[k] * 0.4) + (egz * 0.6);
+			galutinisM = (nd[k] * 0.4) + (egz * 0.6);
 		}
 		else {
 			k = k / 2;
 			k = (nd[k - 1] + nd[k]) / 2;
-			galutinis = (k * 0.4) + (egz * 0.6);
+			galutinisM = (k * 0.4) + (egz * 0.6);
 		}
-	}
+	//}
 }
