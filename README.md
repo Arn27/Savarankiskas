@@ -22,3 +22,5 @@ Nuskaičius studentų informaciją iš failo, studentai rūšiuojami pagal pavar
 Try/Catch panaudotas išvengti klaidų kai skaičiuojant galutinio balo vidurkį gali pasitaikyti dalyba iš nulio.
 
 Kodas suskirstytas į atskirus failus. Kievienas .cpp failas turi savo antraštinį failą.
+
+## V0.2
