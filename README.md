@@ -80,3 +80,14 @@ Programa taip pat atvaizduoja laiką kiek užtruko atlikti kiekvieną iš aukš�
 
 Buvo atlikti du 'commits' vienas su perdaryt programa iš vector į deque ir kitas iš deque į list.
 Abu papildomi variantai buvo pratestuoti. Naudojant list konteinerius, pvz milijono dydzio failas buvo surusiuotas dvigubai sparčiau nei naudojant vector. Kitų didelių skirtumų nepastebėjau. Su vector konteineriais naudojau reserve() funkciją, kad automatiškai būtų išskiriama daugiau vietos konteineriui. Tikriausiai dėl to didelio skirtumo tarp deque ir vector nepastebėjau (deque kai kur nusileido vector konteineriams).
+
+
+# V1.0
+
+Pirma skirstymo, rūšiavimo strategija buvo implementuota ankstesneje versijoje.
+
+Šioje versijoje buvo įgyvendinta antroji strategija: sukuriant tik viena nauja konteinerį ir ištrinant įrašą iš senojo konteinerio.
+
+Naudojant antrąją strategiją rūšiavimui, geriausiai pasirodė list konteinerio tipas. Pvz. 10 milijonų studentų išrūšiavo per 27,4 sekundės, kai vektorius pirmuoju būdu užtruko 53 sekundes. Plius naudojo mažiau RAM atminties.
+
+Deque ir Vector antruoju būdu pasirodė du ir daugiau kartų lėčiau nei List konteinerių tipas.
