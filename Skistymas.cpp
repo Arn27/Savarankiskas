@@ -5,7 +5,8 @@ void Skirstymas() {
     string vardas, pavarde;
     int nd1, nd2, nd3, nd4, nd5, egz;
     int line = 0, kiek = 0;
-    deque<Studentas> STs;
+    list<Studentas> STs;
+    list<Studentas>::iterator it;
     //STs.reserve(1000000);
 
     auto start1 = high_resolution_clock::now();
@@ -31,23 +32,23 @@ void Skirstymas() {
     auto duration1 = duration_cast<milliseconds>(stop1 - start1);
     cout << "Nuskaityti faila uztruko: " << duration1.count() << "ms." << endl;
 
-    STs.shrink_to_fit();
+    //STs.shrink_to_fit();
     open_f.close();
     
     kiek = STs.size();
-    deque<Studentas> vargsiukai, kietekai;
+    list<Studentas> vargsiukai, kietekai;
     //vargsiukai.reserve(50000);
     //kietekai.reserve(50000);
 
     auto start2 = high_resolution_clock::now();
 
-    for (int i = 0; i < kiek; i++) {
-        STs[i].countGalutinis(0);
-        if (STs[i].getGalutinisV() < 5) {
-            vargsiukai.push_back(STs[i]);
+    for (it = STs.begin(); it != STs.end(); it++) {
+        it->countGalutinis(0);
+        if (it->getGalutinisV() < 5) {
+            vargsiukai.push_back(*it);
         }
         else {
-            kietekai.push_back(STs[i]);
+            kietekai.push_back(*it);
         }
     }
     auto stop2 = high_resolution_clock::now();
@@ -55,23 +56,23 @@ void Skirstymas() {
     cout << "Studentus surusiuoti uztruko: " << duration2.count() << "ms." << endl;
 
     STs.clear();
-    vargsiukai.shrink_to_fit();
-    kietekai.shrink_to_fit();
+    //vargsiukai.shrink_to_fit();
+    //kietekai.shrink_to_fit();
 
     auto start3 = high_resolution_clock::now();
 
     ofstream outVar("Vargsiukai.txt");
     outVar << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(15) << left << setprecision(2) << fixed << "Galutinis(Vidurkis)" << endl;
-    for (int i = 0; i < vargsiukai.size(); i++) {
-        outVar << setw(15) << left << vargsiukai[i].getVarda() << setw(15) << left << vargsiukai[i].getPavarde() << setw(5) << left << vargsiukai[i].getGalutinisV() << endl;
+    for (it = vargsiukai.begin(); it != vargsiukai.end(); it++) {
+        outVar << setw(15) << left << it->getVarda() << setw(15) << left << it->getPavarde() << setw(5) << left << it->getGalutinisV() << endl;
     }
     outVar.close();
     vargsiukai.clear();
 
     ofstream outKiet("Kietekai.txt");
     outKiet << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(15) << left << setprecision(2) << fixed << "Galutinis(Vidurkis)" << endl;
-    for (int i = 0; i < kietekai.size(); i++) {
-        outKiet << setw(15) << left << kietekai[i].getVarda() << setw(15) << left << kietekai[i].getPavarde() << setw(5) << left << kietekai[i].getGalutinisV() << endl;
+    for (it = kietekai.begin(); it != kietekai.end(); it++) {
+        outKiet << setw(15) << left << it->getVarda() << setw(15) << left << it->getPavarde() << setw(5) << left << it->getGalutinisV() << endl;
     }
     outKiet.close();
     kietekai.clear();

@@ -9,6 +9,7 @@
 #include <fstream>
 #include <chrono>
 #include <deque>
+#include <list>
 
 using std::cin;
 using std::cout;
@@ -29,6 +30,7 @@ using std::getline;
 using std::stringstream;
 using std::exception;
 using std::deque;
+using std::list;
 using namespace std::chrono;
 
 #include "Studentas.h"
