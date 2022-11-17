@@ -8,6 +8,7 @@
 #include <sstream>
 #include <fstream>
 #include <chrono>
+#include <deque>
 
 using std::cin;
 using std::cout;
@@ -27,6 +28,7 @@ using std::ofstream;
 using std::getline;
 using std::stringstream;
 using std::exception;
+using std::deque;
 using namespace std::chrono;
 
 #include "Studentas.h"
