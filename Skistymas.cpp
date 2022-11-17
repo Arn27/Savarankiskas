@@ -6,7 +6,7 @@ void Skirstymas() {
     int nd1, nd2, nd3, nd4, nd5, egz;
     int line = 0, kiek = 0;
     list<Studentas> STs;
-    list<Studentas>::iterator it;
+    list<Studentas>::iterator it, it2;
     //STs.reserve(1000000);
 
     auto start1 = high_resolution_clock::now();
@@ -42,20 +42,36 @@ void Skirstymas() {
 
     auto start2 = high_resolution_clock::now();
 
-    for (it = STs.begin(); it != STs.end(); it++) {
-        it->countGalutinis(0);
-        if (it->getGalutinisV() < 5) {
-            vargsiukai.push_back(*it);
+    //for (it = STs.begin(); it != STs.end(); it++) {
+    //    it->countGalutinis(0);
+    //    if (it->getGalutinisV() < 5) {
+    //        vargsiukai.push_back(*it);
+    //        it2 = it;
+    //        STs.erase(it2);
+    //    }
+    //    else {
+    //        kietekai.push_back(*it);
+    //    }
+    //}
+    
+    auto i = STs.begin();
+    while (i != STs.end()) {
+        if (i->getGalutinisV() < 5) {
+            vargsiukai.push_back(*i);
+            i = STs.erase(i);
         }
         else {
-            kietekai.push_back(*it);
+            ++i;
         }
+
     }
+
+
     auto stop2 = high_resolution_clock::now();
     auto duration2 = duration_cast<milliseconds>(stop2 - start2);
     cout << "Studentus surusiuoti uztruko: " << duration2.count() << "ms." << endl;
 
-    STs.clear();
+    //STs.clear();
     //vargsiukai.shrink_to_fit();
     //kietekai.shrink_to_fit();
 
@@ -71,11 +87,20 @@ void Skirstymas() {
 
     ofstream outKiet("Kietekai.txt");
     outKiet << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(15) << left << setprecision(2) << fixed << "Galutinis(Vidurkis)" << endl;
-    for (it = kietekai.begin(); it != kietekai.end(); it++) {
+    for (it = STs.begin(); it != STs.end(); it++) {
         outKiet << setw(15) << left << it->getVarda() << setw(15) << left << it->getPavarde() << setw(5) << left << it->getGalutinisV() << endl;
     }
     outKiet.close();
-    kietekai.clear();
+    STs.clear();
+
+
+    //ofstream outKiet("Kietekai.txt");
+    //outKiet << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(15) << left << setprecision(2) << fixed << "Galutinis(Vidurkis)" << endl;
+    //for (it = kietekai.begin(); it != kietekai.end(); it++) {
+    //    outKiet << setw(15) << left << it->getVarda() << setw(15) << left << it->getPavarde() << setw(5) << left << it->getGalutinisV() << endl;
+    //}
+    //outKiet.close();
+    //kietekai.clear();
     auto stop3 = high_resolution_clock::now();
     auto duration3 = duration_cast<milliseconds>(stop3 - start3);
     cout << "Irasyti studentus i du skirtingus failus uztruko: " << duration3.count() << "ms." << endl;
