@@ -38,25 +38,45 @@ Programa taip pat atvaizduoja laiką kiek užtruko atlikti kiekvieną iš aukš�
 
 ### 10 000 studentų: 
   Sukurti failą                   178ms
+  
   Nuskaityti duomenis iš failo:   238ms
+  
   Sugrupuoti studentus:           21ms
+  
   Įrašyti studentus į du failus:  109ms
+  
   
 ### 100 000 studentų: 
   Sukurti failą                   1626ms
+  
   Nuskaityti duomenis iš failo:   2381ms
+  
   Sugrupuoti studentus:           241ms
+  
   Įrašyti studentus į du failus:  897ms
+  
   
 ### 1000 000 studentų: 
   Sukurti failą                   16311ms
+  
   Nuskaityti duomenis iš failo:   23653ms
+  
   Sugrupuoti studentus:           5593ms
+  
   Įrašyti studentus į du failus:  8875ms
+  
   
 ### 10 000 000 studentų: 
   Sukurti failą                   161133ms
+  
   Nuskaityti duomenis iš failo:   280276ms
+  
   Sugrupuoti studentus:           52947ms
+  
   Įrašyti studentus į du failus:  89691ms
   
+  
+## Skirtingi konteinerių tipai
+
+Buvo atlikti du 'commits' vienas su perdaryt programa iš vector į deque ir kitas iš deque į list.
+Abu papildomi variantai buvo pratestuoti. Naudojant list konteinerius, pvz milijono dydzio failas buvo surusiuotas dvigubai sparčiau nei naudojant vector. Kitų didelių skirtumų nepastebėjau. Su vector konteineriais naudojau reserve() funkciją, kad automatiškai būtų išskiriama daugiau vietos konteineriui. Tikriausiai dėl to didelio skirtumo tarp deque ir vector nepastebėjau (deque kai kur nusileido vector konteineriams).
