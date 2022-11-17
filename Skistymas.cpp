@@ -5,8 +5,8 @@ void Skirstymas() {
     string vardas, pavarde;
     int nd1, nd2, nd3, nd4, nd5, egz;
     int line = 0, kiek = 0;
-    deque<Studentas> STs;
-    deque<Studentas>::iterator it;
+    vector<Studentas> STs;
+    vector<Studentas>::iterator it;
     //STs.reserve(1000000);
 
     auto start1 = high_resolution_clock::now();
@@ -36,9 +36,9 @@ void Skirstymas() {
     open_f.close();
     
     kiek = STs.size();
-    deque<Studentas> vargsiukai;
+    vector<Studentas> vargsiukai;
     //vargsiukai.reserve(50000);
-    //kietekai.reserve(50000);
+
 
     auto start2 = high_resolution_clock::now();
 
@@ -52,6 +52,8 @@ void Skirstymas() {
             it++;
         }
     }
+
+    
     
     //auto i = STs.begin();
     //while (i != STs.end()) {
