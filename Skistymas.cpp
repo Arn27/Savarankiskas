@@ -6,7 +6,7 @@ void Skirstymas() {
     int nd1, nd2, nd3, nd4, nd5, egz;
     int line = 0, kiek = 0;
     vector<Studentas> STs;
-    STs.reserve(100000);
+    STs.reserve(1000000);
 
     auto start1 = high_resolution_clock::now();
     for (string eil; getline(open_f, eil);) {
